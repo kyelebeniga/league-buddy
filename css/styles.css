@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input:focus{
+    outline: none;
+}
+input{
+    height: 30px;
+    width: 500px;
+    border-radius: 30px;
+    padding-left: 15px;
+    position: absolute;
+    transform: translate(-50%, 50px);
+    left: 50%;
+    border: none;
+    background-color: rgb(36, 36, 36);
+}
+#image-container{
+    margin-top: 100px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-basis: 33.33%;
+    gap: 50px;
+}
+.championCard h2, .championCard p{
+    text-align: center;
+    transform: translate(0, 420px);
+}
+.championCard img{
+    height: 450px;
+    width: 250px;
+}
+.championCard img::after{
+
+}
