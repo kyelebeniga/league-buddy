@@ -57,6 +57,12 @@ fetch(championDataURL)
 
             // Add the div to the image container
             imageContainer.appendChild(div);
+
+            // Redirects to champion specific page when clicked
+            div.addEventListener('click', function(){
+              console.log(`You clicked ${championName}`);
+              window.location.href = ``;
+            })
           });
         })
         .catch(function(error) {
@@ -88,20 +94,3 @@ fetch(championDataURL)
   .catch(function(error) {
     console.log(error);
   });
-
-
-// fetch(championInfo)
-//     .then(response => response.json())
-//     .then(data => {
-//         const championList = document.getElementById('display-data');
-//         for(let champion in data.data) {
-//             console.log(data.data[champion].name);
-//             const championName = data.data[champion].name;
-//             const championTitle = data.data[champion].title;
-//             const championElement = document.createElement('div');
-//             championElement.classList.add('championCard');
-            
-//             championElement.textContent = championName + ' - ' + championTitle;
-//             championList.appendChild(championElement);
-//         }
-//     }).catch(error => console.error(error));
