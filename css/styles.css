@@ -7,40 +7,57 @@
     font-family: "Poppins", "sans-serif";
 }
 
+:root{
+    --primary: #080424;
+    --secondary: #18142c;
+    --tertiary: #2F387B;
+}
+
 @keyframes intro{
     0%{
         opacity: 0;
-        transform: translate(-50%, -1000px);
+        transform: translate(-50%, 0);
     }
     100%{
         opacity: 1;
     }
 }
 body{
-    background-color: rgb(2, 2, 26);
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.headline{
+    color: white;
+    transform: translateX(-300px);
+    animation: intro 1s;
+}
+.headline h1{
+    font-weight: 600;
+}
+.headline h3{
+    font-weight: 200;
 }
 input:focus{
     outline: none;
 }
 input{
+    margin: 50px 0px;
     height: 40px;
     width: 600px;
     border-radius: 30px;
     padding-left: 15px;
-    position: absolute;
-    transform: translate(-50%, 50px);
-    left: 50%;
     border: none;
     background-color: rgb(36, 36, 36);
-    animation: intro 1.5s;
+    animation: intro 1s;
     color: white;
 }
 #image-container{
+    background-color: var(--secondary);
     animation: intro 1s;
-    margin-top: 150px;
-    position: absolute;
-    transform: translate(-50%, 0);
-    left: 50%;
+    margin-top: 50px;
     width: 1200px;
     display: flex;
     justify-content: center;
@@ -48,6 +65,8 @@ input{
     flex-wrap: wrap;
     flex-basis: 33.33%;
     gap: 50px;
+    padding: 25px 0;
+    border: solid 1px rgb(54, 54, 54);
 }
 .championCard:hover{
     cursor: pointer;
@@ -82,7 +101,5 @@ input{
 .championCard img{
     height: 450px;
     width: 250px;
-}
-.championCard img::after{
-
+    border: solid 1px rgb(54, 54, 54);
 }

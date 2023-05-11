@@ -26,6 +26,8 @@ fetch(championDataURL)
         const championImageURL = `${championImageBaseURL}${championName}_0.jpg`;
         console.log("Champion image URL:", championImageURL);
 
+        const championId = championData.data[championName].id;
+
         // Fetch the image data
         fetch(championImageURL)
         .then(function(response) {
@@ -61,7 +63,8 @@ fetch(championDataURL)
             // Redirects to champion specific page when clicked
             div.addEventListener('click', function(){
               console.log(`You clicked ${championName}`);
-              window.location.href = ``;
+              localStorage.setItem('championId', championId);
+              window.location.href = `/champPage.html?`;
             })
           });
         })
