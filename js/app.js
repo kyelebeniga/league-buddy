@@ -44,7 +44,7 @@ fetch(championDataURL)
 
             // Create a heading element for the champion name and set the text to the champion name
             const h2 = document.createElement("h2");
-            h2.textContent = championName;
+            h2.textContent = championName.replace(/([A-Z])/g, ' $1').trim(); //Creates a space when a champion's name is more than one word. e.g Aurelion Sol
 
             // Create a paragraph element for the champion title and set the text to the champion title
             const p = document.createElement("p");
