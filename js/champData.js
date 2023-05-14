@@ -22,10 +22,11 @@ fetch(championDataURL)
             response.blob()
             .then(function(imageData){
                 // Generates the background splash art of the champion
-                const bgSplashArt = document.querySelector('.bgSplashArt');
                 const championSplashArt = document.querySelector('.championSplashArt');
-                bgSplashArt.src = championImageURL;
                 championSplashArt.src = championImageURL;
+
+                const championBgArt = document.getElementById('background');
+                championBgArt.style.backgroundImage = "url('" + championImageURL + "')";
             })
         })
     })
