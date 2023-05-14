@@ -14,8 +14,8 @@ fetch(championDataURL)
         const championImageURL = `${championImageBaseURL}${championName}_0.jpg`;
         
         // Creates name and title of champion
-        document.querySelector('.name').textContent = championName;
-        document.querySelector('.title').textContent = championTitle;
+        document.querySelector('.name').textContent = championName.replace(/([A-Z])/g, ' $1').trim().toUpperCase();
+        document.querySelector('.title').textContent = championTitle.toUpperCase();
 
         fetch(championImageURL)
         .then(function(response){
