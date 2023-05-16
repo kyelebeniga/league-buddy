@@ -1,6 +1,9 @@
-const championDataURL = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/champion.json";
-const championImageBaseURL = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
 const championName = localStorage.getItem("championId");
+
+const championDataURL = `http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/champion/${championName}.json`;
+const championImageBaseURL = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
+const championPassiveImage = "https://ddragon.leagueoflegends.com/cdn/13.9.1/img/passive/";
+const championAbilityImage = "https://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/";
 
 // Changes title of the tab
 document.title = championName;
@@ -27,9 +30,23 @@ fetch(championDataURL)
 
                 const championBgArt = document.getElementById('background');
                 championBgArt.style.backgroundImage = "url('" + championImageURL + "')";
+
+                // Extracts the abilities of the champion
+                const spellImageURL = Object.values(championData.data[championName].spells)
+                .map(spell => spell.image.full)
+                .map(imageName => `${championAbilityImage}${imageName}`);
+            
+                // Extracts passive image
+                const passiveImageURL = championData.data[championName].passive.image.full;
+                const passiveImage = `${championPassiveImage}${passiveImageURL}`;
+                console.log(passiveImage);
+
+                document.querySelector('.p').src = passiveImage;
+                document.querySelector('.q').src = spellImageURL[0];
+                document.querySelector('.w').src = spellImageURL[1];
+                document.querySelector('.e').src = spellImageURL[2];
+                document.querySelector('.r').src = spellImageURL[3];
             })
         })
     })
 })
-
-console.log(championName);
