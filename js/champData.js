@@ -15,10 +15,12 @@ fetch(championDataURL)
     .then(function(championData){
         const championTitle = championData.data[championName].title;
         const championImageURL = `${championImageBaseURL}${championName}_0.jpg`;
+        const championLore = championData.data[championName].lore;
         
         // Creates name and title of champion
         document.querySelector('.name').textContent = championName.replace(/([A-Z])/g, ' $1').trim().toUpperCase();
         document.querySelector('.title').textContent = championTitle.toUpperCase();
+        document.querySelector('.blurb').textContent = championLore;
 
         fetch(championImageURL)
         .then(function(response){
@@ -41,12 +43,18 @@ fetch(championDataURL)
                 const passiveImage = `${championPassiveImage}${passiveImageURL}`;
                 console.log(passiveImage);
 
-                document.querySelector('.p').src = passiveImage;
-                document.querySelector('.q').src = spellImageURL[0];
-                document.querySelector('.w').src = spellImageURL[1];
-                document.querySelector('.e').src = spellImageURL[2];
-                document.querySelector('.r').src = spellImageURL[3];
+                // document.querySelector('.p').src = passiveImage;
+                // document.querySelector('.q').src = spellImageURL[0];
+                // document.querySelector('.w').src = spellImageURL[1];
+                // document.querySelector('.e').src = spellImageURL[2];
+                // document.querySelector('.r').src = spellImageURL[3];
             })
         })
     })
+})
+
+const returnDiv = document.querySelector('.return');
+returnDiv.addEventListener('click', () => {
+    // window.location.href = `/index.html`;
+    window.location.href = `/league-buddy/index.html`;
 })
