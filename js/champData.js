@@ -22,34 +22,41 @@ fetch(championDataURL)
         document.querySelector('.title').textContent = championTitle.toUpperCase();
         document.querySelector('.blurb').textContent = championLore;
 
-        fetch(championImageURL)
-        .then(function(response){
-            response.blob()
-            .then(function(imageData){
-                // Generates the background splash art of the champion
-                const championSplashArt = document.querySelector('.championSplashArt');
-                championSplashArt.src = championImageURL;
+        // Generates the background splash art of the champion
+        const championSplashArt = document.querySelector('.championSplashArt');
+        championSplashArt.src = championImageURL;
 
-                const championBgArt = document.getElementById('background');
-                championBgArt.style.backgroundImage = "url('" + championImageURL + "')";
+        const championBgArt = document.getElementById('background');
+        championBgArt.style.backgroundImage = "url('" + championImageURL + "')";
 
-                // Extracts the abilities of the champion
-                const spellImageURL = Object.values(championData.data[championName].spells)
-                .map(spell => spell.image.full)
-                .map(imageName => `${championAbilityImage}${imageName}`);
-            
-                // Extracts passive image
-                const passiveImageURL = championData.data[championName].passive.image.full;
-                const passiveImage = `${championPassiveImage}${passiveImageURL}`;
-                console.log(passiveImage);
+        // Extracts the ability info of the champion
+        const spellData = Object.values(championData.data[championName].spells)
+        .map(data => ({
+            name: data.name,
+            description: data.description,
+            image: `${championAbilityImage}${data.image.full}`
+        }))
 
-                // document.querySelector('.p').src = passiveImage;
-                // document.querySelector('.q').src = spellImageURL[0];
-                // document.querySelector('.w').src = spellImageURL[1];
-                // document.querySelector('.e').src = spellImageURL[2];
-                // document.querySelector('.r').src = spellImageURL[3];
-            })
-        })
+        // Extracts passive info
+        const passive = championData.data[championName].passive;
+        const passiveData = {
+            name: passive.name,
+            description: passive.description,
+            image: `${championPassiveImage}${passive.image.full}`
+        }
+
+        // Populates ability page
+        const passiveDiv = abilityList[0];
+        passiveDiv.src = passiveData.image;
+        passiveDiv.dataset.spellName = passiveData.name;
+        passiveDiv.dataset.spellDescription = passiveData.description;
+
+        for(var i = 1; i < abilityList.length; i++){
+            const div = abilityList[i];
+            div.src = spellData[i - 1].image;
+            div.dataset.spellName = spellData[i - 1].name;
+            div.dataset.spellDescription = spellData[i - 1].description;
+        }
     })
 })
 
@@ -58,3 +65,14 @@ returnDiv.addEventListener('click', () => {
     // window.location.href = `/index.html`;
     window.location.href = `/league-buddy/index.html`;
 })
+
+// Assigns onclick event to each ability
+const abilityList = document.querySelector('.abilities').children;
+for(var i = 0; i < abilityList.length; i++){
+    abilityList[i].onclick = function(e) {
+        const abilityName = e.target.dataset.spellName;
+        const abilityDescription = e.target.dataset.spellDescription;
+        console.log(abilityName);
+        console.log(abilityDescription);
+    }
+}
