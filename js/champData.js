@@ -45,7 +45,7 @@ fetch(championDataURL)
             image: `${championPassiveImage}${passive.image.full}`
         }
 
-        // Populates ability page
+        // Populates ability section
         const passiveDiv = abilityList[0];
         passiveDiv.src = passiveData.image;
         passiveDiv.dataset.spellName = passiveData.name;
@@ -62,17 +62,41 @@ fetch(championDataURL)
 
 const returnDiv = document.querySelector('.return');
 returnDiv.addEventListener('click', () => {
-    // window.location.href = `/index.html`;
-    window.location.href = `/league-buddy/index.html`;
+    window.location.href = `/index.html`;
+    // window.location.href = `/league-buddy/index.html`;
 })
 
 // Assigns onclick event to each ability
-const abilityList = document.querySelector('.abilities').children;
+let selectedAbility = null;
+const abilityList = document.querySelector('.ability-icon').children;
 for(var i = 0; i < abilityList.length; i++){
     abilityList[i].onclick = function(e) {
         const abilityName = e.target.dataset.spellName;
         const abilityDescription = e.target.dataset.spellDescription;
-        console.log(abilityName);
-        console.log(abilityDescription);
+        const abilityDiv = e.target;
+
+        if (selectedAbility === abilityDiv) {
+            return; // Skip resizing logic
+          }
+
+        if (selectedAbility) {
+            selectedAbility.style.transform = 'initial';
+            selectedAbility.style.border = "none";
+        }
+        
+        selectedAbility = abilityDiv;
+
+        focusDiv(abilityDiv);
+        displayAbilityInfo(abilityName, abilityDescription);
     }
+}
+
+function focusDiv(div){
+    div.style.transition = "0.3s all ease";
+    div.style.transform = "translateY(-15px)";
+    div.style.border = "solid 1px rgb(99, 111, 223)";
+}
+function displayAbilityInfo(abilityName, abilityDescription){
+    document.querySelector('.ability-name').textContent = abilityName.toUpperCase();
+    document.querySelector('.ability-description').textContent = abilityDescription;
 }

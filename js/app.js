@@ -1,3 +1,9 @@
+// @TODO 
+// 1.Fix bug where search bar looks for different champions 
+//   when a character is in their name
+// 2.Create a loading screen
+
+
 // URL for the champion data
 const championDataURL = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/champion.json";
 
@@ -64,8 +70,8 @@ fetch(championDataURL)
             div.addEventListener('click', function(){
               console.log(`You clicked ${championName}`);
               localStorage.setItem('championId', championId);
-              window.location.href = `/league-buddy/champPage.html`;
-              // window.location.href = `/champPage.html`;
+              // window.location.href = `/league-buddy/champPage.html`;
+              window.location.href = `/champPage.html`;
             })
           });
         })
