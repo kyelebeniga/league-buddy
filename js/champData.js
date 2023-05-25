@@ -88,15 +88,25 @@ for(var i = 0; i < abilityList.length; i++){
 
         focusDiv(abilityDiv);
         displayAbilityInfo(abilityName, abilityDescription);
+        fadeIn();
     }
 }
-
+// Adds a focus transition when clicking an ability
 function focusDiv(div){
     div.style.transition = "0.3s all ease";
     div.style.transform = "translateY(-15px)";
     div.style.border = "solid 1px rgb(99, 111, 223)";
 }
+// When clicking an ability, show its information
 function displayAbilityInfo(abilityName, abilityDescription){
     document.querySelector('.ability-name').textContent = abilityName.toUpperCase();
     document.querySelector('.ability-description').textContent = abilityDescription;
+}
+// Adds a transition animation when showing the ability information
+fadeIn = () => {
+    const animateDiv = document.querySelector('.ability-info');
+
+    setTimeout(() => {
+        animateDiv.classList.remove("fade-in");
+    }, 100);
 }
