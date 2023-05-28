@@ -1,3 +1,5 @@
+/* CTRL + F @TODO to find things that need to be done */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap');
 
 @keyframes animate{
@@ -207,6 +209,8 @@ body{
 .ability-icon > *:hover{
     cursor: pointer;
 }
+
+/* @TODO: Style ability-stats */
 .ability-info{
     width: 600px;
     height: 200px;
@@ -222,6 +226,18 @@ body{
     font-weight: 600;
     font-size: 18px;
     font-style: italic;
+}
+.ability-stats{
+    padding-top: 10px;
+    display: flex;
+    gap: 50px;
+    color: grey;
+}
+.ability-stats i{
+    font-size: 20px;
+}
+.fa-square{
+    color: rgba(26, 125, 255, 0.89);
 }
 .fade-in{
     opacity: 0; 

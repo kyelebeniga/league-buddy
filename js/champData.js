@@ -80,13 +80,13 @@ let selectedAbility = null;
 const abilityList = document.querySelector('.ability-icon').children;
 for(var i = 0; i < abilityList.length; i++){
     abilityList[i].onclick = function(e) {
-        // @TODO: Turn this into an array if possible
         const abilityDiv = e.target;
         const abilityName = e.target.dataset.spellName;
         const abilityDescription = e.target.dataset.spellDescription;
         const abilityCoolDown = e.target.dataset.spellCoolDown;
         const abilityCost = e.target.dataset.spellCost;
         const abilityRange = e.target.dataset.spellRange;
+        var icons = document.getElementsByClassName('fa-solid');
 
         if (selectedAbility === abilityDiv) {
             return; // Skip resizing logic
@@ -97,16 +97,27 @@ for(var i = 0; i < abilityList.length; i++){
             selectedAbility.style.border = "none";
         }
         
+        // Hides the stats icon on the passive ability
+        if(abilityDiv == abilityList[0]){
+            for(var i = 0; i < icons.length; i++){
+                icons[i].style.display = "none";
+            }
+        }
+        else{
+            for(var i = 0; i < icons.length; i++){
+                icons[i].style.display = "initial";
+            }
+        }
+        
         selectedAbility = abilityDiv;
 
+        document.querySelector('.ability-name').textContent = abilityName.toUpperCase();
+        document.querySelector('.ability-description').textContent = abilityDescription;
+        document.querySelector('.ability-cooldown').textContent = abilityCoolDown;
+        document.querySelector('.ability-cost').textContent = abilityCost;
+        document.querySelector('.ability-range').textContent = abilityRange;
+
         focusDiv(abilityDiv);
-        displayAbilityInfo(
-            abilityName, 
-            abilityDescription, 
-            abilityCoolDown,
-            abilityCost,
-            abilityRange
-        );
         fadeIn();
     }
 }
@@ -115,21 +126,6 @@ function focusDiv(div){
     div.style.transition = "0.3s all ease";
     div.style.transform = "translateY(-15px)";
     div.style.border = "solid 1px rgb(99, 111, 223)";
-}
-// When clicking an ability, show its information
-// @TODO Refactor this code into something more concise
-function displayAbilityInfo(
-    abilityName, 
-    abilityDescription, 
-    abilityCoolDown, 
-    abilityCost, 
-    abilityRange
-){
-    document.querySelector('.ability-name').textContent = abilityName.toUpperCase();
-    document.querySelector('.ability-description').textContent = abilityDescription;
-    document.querySelector('.ability-cooldown').textContent = abilityCoolDown;
-    document.querySelector('.ability-cost').textContent = abilityCost;
-    document.querySelector('.ability-range').textContent = abilityRange;
 }
 // Adds a transition animation when showing the ability information
 fadeIn = () => {

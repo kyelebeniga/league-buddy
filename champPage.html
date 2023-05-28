@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="media/lol-icon.png">
     <link rel="stylesheet" href="css/champPage.css">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="https://kit.fontawesome.com/ee576bec08.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="return-border">
@@ -46,9 +47,18 @@
                     <p class="ability-name"></p>
                     <p class="ability-description"></p>
                     <div class="ability-stats">
-                        <p class="ability-cooldown"></p>
-                        <p class="ability-cost"></p>
-                        <p class="ability-range"></p>
+                        <div title="Cooldown">
+                            <i class="fa-solid fa-hourglass-end"></i>
+                            <span class="ability-cooldown"></span>
+                        </div>
+                        <div title="Mana cost">
+                            <i class="fa-solid fa-square"></i>
+                            <span class="ability-cost"></span>
+                        </div>                        
+                        <div title="Range">
+                            <i class="fa-solid fa-ruler-combined"></i>
+                            <span class="ability-range"></span>
+                        </div>
                     </div>
                 </div>
             </div>
