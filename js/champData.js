@@ -97,7 +97,7 @@ for(var i = 0; i < abilityList.length; i++){
             selectedAbility.style.border = "none";
         }
         
-        // Hides the stats icon on the passive ability
+        // Hides the stat icons on the passive ability
         if(abilityDiv == abilityList[0]){
             for(var i = 0; i < icons.length; i++){
                 icons[i].style.display = "none";
