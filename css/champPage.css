@@ -175,8 +175,9 @@ body{
     border-top: none;
     z-index:1;
 }
+/* Ability styling */
 .hero-details{
-    height: 100vh;
+    height: 70vh;
     width:auto;
     background-color: black;
 }
@@ -209,8 +210,6 @@ body{
 .ability-icon > *:hover{
     cursor: pointer;
 }
-
-/* @TODO: Style ability-stats */
 .ability-info{
     width: 600px;
     height: 200px;
@@ -241,4 +240,30 @@ body{
 }
 .fade-in{
     opacity: 0; 
+}
+/* Skins styling */
+.skins{
+    background-color: rgb(22, 13, 75);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skin-container{
+    background-color: #101424;
+    height: 80%;
+    width: 1400px;
+    overflow-y: hidden;
+}
+.skin-sidebar{
+    background-color: #d8d8d8;
+    height: 100%;
+    width: 250px;
+}
+.skin-element{
+    height: 80px;
+    border: 1px solid red;
+}
+.skin-element:hover{
+    cursor: pointer;
 }
