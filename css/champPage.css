@@ -243,7 +243,6 @@ body{
 }
 /* Skins styling */
 .skins{
-    background-color: rgb(22, 13, 75);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -255,11 +254,11 @@ body{
     height: 80%;
     width: 1400px;
     overflow-y: hidden;
+    background-size: cover;
 }
 .swiper{
-    background-color: #d8d8d8;
-    height: 100%;
-    width: 250px;
+    background-color: #081238be;
+    width: 320px;
 }
 .swiper-wrapper{
     height: 80px;
@@ -268,14 +267,13 @@ body{
     display: flex !important;
     align-items: center;
     justify-content: center;
-    height: 70px !important;
+    height: 90px !important;
     text-align: center;
-    border: 1px solid red;
+    color: white;
 }
 .swiper-slide:hover{
     cursor: pointer;
 }
 .skin-splash{
     width: 100%;
-    background-color: red;
 }
