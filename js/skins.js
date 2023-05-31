@@ -43,7 +43,7 @@ fetch(championDataURL)
                     slide.style.transition = "background-color 0.3s"
                     slide.style.backgroundColor = ""; // Reset background color of all slides
                 });
-                skinDiv.style.backgroundColor = "red";
+                skinDiv.style.backgroundColor = "gray";
             })
         })
     })
