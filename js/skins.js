@@ -1,3 +1,5 @@
+// @TODO: Implement a carousel on the skin sidebar
+
 fetch(championDataURL)
 .then(function(response){
     response.json()
@@ -12,10 +14,11 @@ fetch(championDataURL)
         let isFirstIteration = true;
         skinURL.forEach(skin => {
             const skinName = skin.skinName;
-            const skinSideBar = document.querySelector(".skin-sidebar");
+            const skinArt = skin.skinArt;
+            const skinSideBar = document.querySelector(".swiper-wrapper");
 
             const skinDiv = document.createElement("div");
-            skinDiv.classList.add("skin-element");
+            skinDiv.classList.add("swiper-slide");
 
             const p = document.createElement("p");
             p.textContent = skinName;
@@ -29,8 +32,14 @@ fetch(championDataURL)
             skinDiv.appendChild(p);
 
             skinDiv.addEventListener('click', () => {
-                console.log(skinName);
+                console.log(skinArt);
             })
         })
     })
 })
+
+const swiper = new Swiper('.swiper', {
+    direction: 'vertical',
+    loop: false,
+    slidesPerView: 10,
+});

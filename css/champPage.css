@@ -250,20 +250,32 @@ body{
     align-items: center;
 }
 .skin-container{
+    display: flex;
     background-color: #101424;
     height: 80%;
     width: 1400px;
     overflow-y: hidden;
 }
-.skin-sidebar{
+.swiper{
     background-color: #d8d8d8;
     height: 100%;
     width: 250px;
 }
-.skin-element{
+.swiper-wrapper{
     height: 80px;
+}
+.swiper-slide{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 70px !important;
+    text-align: center;
     border: 1px solid red;
 }
-.skin-element:hover{
+.swiper-slide:hover{
     cursor: pointer;
+}
+.skin-splash{
+    width: 100%;
+    background-color: red;
 }
