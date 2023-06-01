@@ -1,5 +1,3 @@
-// @TODO: Implement a carousel on the skin sidebar
-
 fetch(championDataURL)
 .then(function(response){
     response.json()

@@ -47,8 +47,8 @@ fetch(championDataURL)
           div.addEventListener('click', () => {
             console.log(`You clicked ${championName}`);
             localStorage.setItem('championId', champion.id);
-            // window.location.href = '/champPage.html';
-            window.location.href = '/league-buddy/champPage.html'
+            window.location.href = '/champPage.html';
+            // window.location.href = '/league-buddy/champPage.html'
           });
         })
         .catch(error => console.log(error));

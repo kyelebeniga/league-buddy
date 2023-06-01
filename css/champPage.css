@@ -251,11 +251,13 @@ body{
 }
 .skins h1{
     color: white;
-    font-size: 42px;
+    font-size: 54px;
+    font-style: italic;
+    transform: translateX(-500px);
+    margin-bottom: 20px;
 }
 .skin-container{
     display: flex;
-    background-color: #101424;
     height: 80%;
     width: 1400px;
     overflow-y: hidden;
