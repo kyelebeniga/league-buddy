@@ -1,0 +1,6 @@
+1. Create a loading screen. All pages
+2. Change appearance of main page. //index.html
+3. Fix bug where champions do not load in order of alphabet. //index.html
+4. Create some code documentation.
+5. Add site to portfolio when done.
+

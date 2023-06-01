@@ -1,7 +1,7 @@
 // @TODO 
 // 1.Fix bug where search bar looks for different champions 
-//   when a character is in their name
-// 2.Create a loading screen
+//   when a letter is in their name.
+// 2.Create a loading screen.
 
 
 // URL for the champion data
