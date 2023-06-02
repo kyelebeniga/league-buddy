@@ -71,8 +71,8 @@ fetch(championDataURL)
 
 const returnDiv = document.querySelector('.return');
 returnDiv.addEventListener('click', () => {
-    window.location.href = `/index.html`;
-    // window.location.href = `/league-buddy/index.html`;
+    // window.location.href = `/index.html`;
+    window.location.href = `/league-buddy/index.html`;
 })
 
 // Assigns onclick event to each ability
