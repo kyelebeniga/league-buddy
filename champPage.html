@@ -20,10 +20,9 @@
             <p>Champion List</p>
         </div>
     </div>
-    <div class="overlay"></div>
-    <div class="bgOverlay"></div>
-
-    <section class="hero" id="hero">
+    <section class="hero onload" id="hero">
+        <div class="overlay"></div>
+        <div class="bgOverlay"></div>
         <div id="background"></div>
         <div class="art">
             <div class="championInfo">
@@ -36,7 +35,7 @@
             <p class="blurb"></p>
         </div>
     </section>
-    <section class="hero-details">
+    <section class="hero-details onload">
         <div class="abilities-container">
             <h1>ABILITIES</h1>
             <div class="abilities">
@@ -68,7 +67,7 @@
             </div>
         </div>
     </section>
-    <section class="skins">
+    <section class="skins onload">
         <h1>AVAILABLE SKINS</h1>
         <div class="skin-container">
             <!-- Carousel for available skins using SwiperJS -->
@@ -83,5 +82,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="js/champData.js"></script>
     <script src="js/skins.js"></script>
+    <script src="js/loading.js"></script>
 </body>
 </html>

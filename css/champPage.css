@@ -23,6 +23,13 @@
     box-sizing: border-box;
     font-family: "Poppins", "sans-serif";
 }
+.onload{
+    opacity: 0;
+}
+.loadAnimation{
+    transition: 1s;
+    opacity: 1;
+}
 body{
     overflow-x: hidden;
     background-color: black;
