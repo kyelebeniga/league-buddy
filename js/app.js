@@ -1,9 +1,3 @@
-// @TODO 
-// 1.Fix bug where search bar looks for different champions 
-//   when a letter is in their name.
-// 2.Create a loading screen.
-
-
 // URL for the champion data
 const championDataURL = "http://ddragon.leagueoflegends.com/cdn/13.9.1/data/en_US/champion.json";
 
@@ -14,8 +8,11 @@ const championImageBaseURL = "https://ddragon.leagueoflegends.com/cdn/img/champi
 const imageContainer = document.getElementById("image-container");
 
 // Fetch the champion data
-fetch(championDataURL)
-  .then(response => response.json())
+(async function (){
+  return fetch(championDataURL)
+  .then(response => {
+    return response.json();
+  })
   .then(championData => {
     const championNames = Object.keys(championData.data).sort();
 
@@ -55,6 +52,8 @@ fetch(championDataURL)
     });
   })
 .catch(error => console.log(error));
+})();
+
 
 // Searches for a champion
 const searchInput = document.getElementById("search-input");
@@ -67,4 +66,3 @@ searchInput.addEventListener("input", function() {
     championNameElement.parentNode.style.display = championName.includes(searchQuery) ? "block" : "none";
   });
 });
-

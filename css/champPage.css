@@ -8,12 +8,15 @@
     50%{ clip-path: inset(215px 0px 0px 0px) }
     75%{ clip-path: inset(0px 215px 0px 0px) }
 }
-
 @keyframes fadeIn {
     0%{ transform: translateY(200px); }
     100% { transform: translateY(0); }
 }
-
+/* Animation for when the page finishes loading */
+@keyframes onLoad {
+    0%{ opacity: 0; }
+    100%{ opacity: 1; }
+}
 *{
     margin: 0;
     padding: 0;

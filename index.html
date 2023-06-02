@@ -10,14 +10,15 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
-    <input type="text" id="search-input" name="search-input" placeholder="Search a champion...">
-    <div class="headline">
+    <input class="onload" type="text" id="search-input" name="search-input" placeholder="Search a champion...">
+    <div class="headline onload">
         <h1>League Buddy</h1>
         <h3>Select a champion to learn about their abilities and lore!</h3>
     </div>
-    <div id="image-container"></div>
+    <div id="image-container" class="onload"></div>
     
     <script src="js/app.js"></script>
     <script src="js/animation.js"></script>
+    <script src="js/loading.js"></script>
 </body>
 </html>
